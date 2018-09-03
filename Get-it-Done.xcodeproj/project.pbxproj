@@ -17,6 +17,7 @@
 		109F8192211FC5FB0022E557 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F8191211FC5FB0022E557 /* Category.swift */; };
 		109F8194211FCCBD0022E557 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F8193211FCCBD0022E557 /* CategoryViewController.swift */; };
 		109F81962120CFF60022E557 /* SwipeCellsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F81952120CFF60022E557 /* SwipeCellsTableViewController.swift */; };
+		10A63B01213DE71800782C19 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A63B00213DE71800782C19 /* Utils.swift */; };
 		E508B128546CEAABE3D55CAE /* Pods_Get_it_Done.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A762D104AD70CCBADC11A1 /* Pods_Get_it_Done.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		109F8191211FC5FB0022E557 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		109F8193211FCCBD0022E557 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		109F81952120CFF60022E557 /* SwipeCellsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCellsTableViewController.swift; sourceTree = "<group>"; };
+		10A63B00213DE71800782C19 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		3A247CF046B99C3B842477BF /* Pods-Get-it-Done.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-it-Done.release.xcconfig"; path = "Pods/Target Support Files/Pods-Get-it-Done/Pods-Get-it-Done.release.xcconfig"; sourceTree = "<group>"; };
 		A6A487F46FEE03F2F9366F8D /* Pods-Get-it-Done.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Get-it-Done.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Get-it-Done/Pods-Get-it-Done.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 		10202DE3211A4AB9002A436F /* Get-it-Done */ = {
 			isa = PBXGroup;
 			children = (
+				10A63AFF213DE6F100782C19 /* Utils */,
 				10202DE4211A4AB9002A436F /* AppDelegate.swift */,
 				10202DFB211B307E002A436F /* Controller */,
 				10202DFA211B3045002A436F /* Model */,
@@ -111,11 +114,19 @@
 		10202DFD211B30C6002A436F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				10202DF6211A5560002A436F /* Flexed_Biceps_Emoji.png */,
 				10202DEB211A4ABB002A436F /* Assets.xcassets */,
+				10202DF6211A5560002A436F /* Flexed_Biceps_Emoji.png */,
 				10202DED211A4ABB002A436F /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		10A63AFF213DE6F100782C19 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				10A63B00213DE71800782C19 /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B3F0D41BD5B540C3CD285021 /* Pods */ = {
@@ -215,6 +226,7 @@
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableViewReloadAnimation/TableViewReloadAnimation.framework",
 			);
@@ -223,6 +235,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework",
 			);
@@ -259,6 +272,7 @@
 				109F8194211FCCBD0022E557 /* CategoryViewController.swift in Sources */,
 				109F8190211FC5EF0022E557 /* Item.swift in Sources */,
 				109F81962120CFF60022E557 /* SwipeCellsTableViewController.swift in Sources */,
+				10A63B01213DE71800782C19 /* Utils.swift in Sources */,
 				109F8192211FC5FB0022E557 /* Category.swift in Sources */,
 				10202DE7211A4AB9002A436F /* ListViewController.swift in Sources */,
 				10202DE5211A4AB9002A436F /* AppDelegate.swift in Sources */,

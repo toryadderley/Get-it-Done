@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SCLAlertView
 import TableViewReloadAnimation
 
 
@@ -17,14 +18,15 @@ class CategoryViewController: SwipeCellsTableViewController {
     
     var categoryList: Results<Category>?
 
+    @IBOutlet var tableview: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.reloadData(
-            with: .spring(duration: 0.45, damping: 0.65, velocity: 1, direction: .rotation(angle: Double.pi / 2),
-                          constantDelay: 0))
         loadCategories()
-
+        
+        Utils.insertGradientIntoTableView(viewController: self, tableView: tableview)
+        Utils.navBarClear(viewController: self)
     }
     //MARK: - Tableview Datasource Methods
     
@@ -36,6 +38,9 @@ class CategoryViewController: SwipeCellsTableViewController {
         
         let cell = super.tableView(tableView, cellForRowAt: indexPath)
         cell.textLabel?.text = categoryList?[indexPath.row].name ?? "No Categories"
+        cell.selectionStyle = .none
+        cell.backgroundColor =  UIColor.clear
+
         return cell
     }
     
@@ -53,29 +58,28 @@ class CategoryViewController: SwipeCellsTableViewController {
         }
     }
     
-    
     //MARK: - Data Manipulation Methods
     
+    //Recieves a category Object and saves it to the realm Database
     func saveCategories(category: Category) {
         do {
-            try realm.write { realm.add(category) }
+            try realm.write { realm.add(category) } 
         } catch{
-            print("Error writing Category")
+            print("Error writing Categories")
         }
         
         tableView.reloadData()
     }
     
     func loadCategories()  {
-        categoryList = realm.objects(Category.self)
-        
+        categoryList = realm.objects(Category.self) //Retrieves the Category Objects from realm databse
         tableView.reloadData()
         
     }
     
     
     override func updateModel(at indexPath: IndexPath) {
-        if let categorytoDelete = self.categoryList?[indexPath.row]{
+        if let categorytoDelete = self.categoryList?[indexPath.row]{ //categorytodelete is current category
             
             do {
                 try self.realm.write { self.realm.delete(categorytoDelete) }
@@ -85,34 +89,34 @@ class CategoryViewController: SwipeCellsTableViewController {
             }
     }
     
-    //MARK: - Add New Categories 
+    //MARK: - Add New Category Method
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
-        var textField = UITextField()
         
-        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        let appearance = SCLAlertView.SCLAppearance(
+            kCircleHeight: 100.0,
+            kCircleIconHeight: 60.0,
+            kTitleTop: 62.0,
+            showCloseButton: false
+        )
         
-        let alertAction = UIAlertAction(title: "Add Category", style: .default){(alertAction) in
-            
-            let newCategory = Category()
-            newCategory.name = textField.text!
-            self.saveCategories(category: newCategory)
+        let alertView = SCLAlertView(appearance: appearance)
+        let alertViewIcon = UIImage(named: "Flexed_Biceps_Emoji")
+        let textField = alertView.addTextField("Enter New Task")
+        
+        alertView.addButton("Add") {
+            if !textField.text!.isEmpty {
+                let newCategory = Category()
+                newCategory.name = textField.text!
+                self.saveCategories(category: newCategory)
+            }
         }
+        alertView.addButton("Close") {}
         
-        alertAction.isEnabled = false
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new item"
-
-            NotificationCenter.default.addObserver(forName: .UITextFieldTextDidChange, object: alertTextField, queue: OperationQueue.main, using:
-                {_ in
-                    let textCount = alertTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).characters.count ?? 0
-                    let textIsNotEmpty = textCount > 0
-                
-                    alertAction.isEnabled = textIsNotEmpty
-                    textField = alertTextField
-            })
-        }
-        alert.addAction(alertAction)
-        present(alert, animated: true, completion: nil)
+        alertView.showCustom("Add New Task", subTitle: "" , color: Utils.hexStringToUIColor(hex: "fa709a"), icon: alertViewIcon!, animationStyle: .rightToLeft)
+        
     }
+    
+    
+    
 }

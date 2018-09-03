@@ -21,7 +21,11 @@ class SwipeCellsTableViewController: UITableViewController, SwipeTableViewCellDe
 //                          constantDelay: 0))
         
         tableView.rowHeight = 80.0
+        tableView.separatorStyle = .none
     }
+    
+    
+    //MARK: - Swipe and Delete Cell Methods
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
