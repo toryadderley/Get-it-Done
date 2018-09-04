@@ -28,10 +28,11 @@ class CategoryViewController: SwipeCellsTableViewController {
         Utils.insertGradientIntoTableView(viewController: self, tableView: tableview)
         Utils.navBarClear(viewController: self)
     }
+    
     //MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryList?.count ?? 1 // Nil Coalesing Operator
+        return categoryList?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,8 +60,6 @@ class CategoryViewController: SwipeCellsTableViewController {
     }
     
     //MARK: - Data Manipulation Methods
-    
-    //Recieves a category Object and saves it to the realm Database
     func saveCategories(category: Category) {
         do {
             try realm.write { realm.add(category) } 
@@ -72,14 +71,14 @@ class CategoryViewController: SwipeCellsTableViewController {
     }
     
     func loadCategories()  {
-        categoryList = realm.objects(Category.self) //Retrieves the Category Objects from realm databse
+        categoryList = realm.objects(Category.self)
         tableView.reloadData()
         
     }
     
     
     override func updateModel(at indexPath: IndexPath) {
-        if let categorytoDelete = self.categoryList?[indexPath.row]{ //categorytodelete is current category
+        if let categorytoDelete = self.categoryList?[indexPath.row]{
             
             do {
                 try self.realm.write { self.realm.delete(categorytoDelete) }
@@ -91,7 +90,6 @@ class CategoryViewController: SwipeCellsTableViewController {
     
     //MARK: - Add New Category Method
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
         
         let appearance = SCLAlertView.SCLAppearance(
             kCircleHeight: 100.0,

@@ -12,7 +12,6 @@
 		10202DEA211A4AB9002A436F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10202DE8211A4AB9002A436F /* Main.storyboard */; };
 		10202DEC211A4ABB002A436F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10202DEB211A4ABB002A436F /* Assets.xcassets */; };
 		10202DEF211A4ABB002A436F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10202DED211A4ABB002A436F /* LaunchScreen.storyboard */; };
-		10202DF7211A5560002A436F /* Flexed_Biceps_Emoji.png in Resources */ = {isa = PBXBuildFile; fileRef = 10202DF6211A5560002A436F /* Flexed_Biceps_Emoji.png */; };
 		109F8190211FC5EF0022E557 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F818F211FC5EF0022E557 /* Item.swift */; };
 		109F8192211FC5FB0022E557 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F8191211FC5FB0022E557 /* Category.swift */; };
 		109F8194211FCCBD0022E557 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F8193211FCCBD0022E557 /* CategoryViewController.swift */; };
@@ -30,7 +29,6 @@
 		10202DEB211A4ABB002A436F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10202DEE211A4ABB002A436F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10202DF0211A4ABB002A436F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10202DF6211A5560002A436F /* Flexed_Biceps_Emoji.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Flexed_Biceps_Emoji.png; sourceTree = "<group>"; };
 		109F818F211FC5EF0022E557 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		109F8191211FC5FB0022E557 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		109F8193211FCCBD0022E557 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				10202DEB211A4ABB002A436F /* Assets.xcassets */,
-				10202DF6211A5560002A436F /* Flexed_Biceps_Emoji.png */,
 				10202DED211A4ABB002A436F /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -208,7 +205,6 @@
 			files = (
 				10202DEF211A4ABB002A436F /* LaunchScreen.storyboard in Resources */,
 				10202DEC211A4ABB002A436F /* Assets.xcassets in Resources */,
-				10202DF7211A5560002A436F /* Flexed_Biceps_Emoji.png in Resources */,
 				10202DEA211A4AB9002A436F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

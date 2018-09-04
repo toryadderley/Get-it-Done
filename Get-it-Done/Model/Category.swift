@@ -10,6 +10,5 @@ import RealmSwift
 
 class Category: Object {
     @objc dynamic var name: String = ""
-    let items = List<Item>()  // linking item and category
-                              // Each Category contains an array of item objects
+    let items = List<Item>()  
 }

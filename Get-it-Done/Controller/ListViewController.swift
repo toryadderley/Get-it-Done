@@ -4,15 +4,6 @@
 //  Copyright © 2018 Tory Adderley. All rights reserved.
 //
 
-/*
- diiferent ui elements: navigation controller, ui table view, buttons
- persist data on phone
- features:
- not allowing the user to submit an empty text field
- Using NScoder and plist to hold itemsm
- */
-
-
 import UIKit
 import RealmSwift
 import SCLAlertView
@@ -22,19 +13,14 @@ class ListViewController: SwipeCellsTableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var todoItems: Results<Item>? // Array of Custom Item Objects
+    var todoItems: Results<Item>?
     let realm = try! Realm()
     
-    var selectedCategory : Category? { //When you selesct a particular category, the corresponding items will load
+    var selectedCategory : Category? {
         didSet{
             loadItems()
         }
     }
-    
-    //Only use UserDefaults for simple stuff, volume on, volume off,
-    //UserDefaults only take simple data not custom data like a custom class
-    
-    //to navigate up the directory, use command and up to eventually get to the directory
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +42,8 @@ class ListViewController: SwipeCellsTableViewController {
         cell.backgroundColor =  UIColor.clear
         if  let item = todoItems?[indexPath.row] {
             
-            cell.textLabel?.text = item.title // returns the title of an item obj
-            
-            //Tenary Operator
-            //Sets the done property of the item obj depending of the value of done property
-            //if a item obj in a row .done is true then the ceel accessory = checkmark/
-            //if false it will be .none
+            cell.textLabel?.text = item.title
+
             cell.accessoryType = item.done ? .checkmark : .none
             
         } else {
@@ -95,7 +77,7 @@ class ListViewController: SwipeCellsTableViewController {
     }
     
     override func updateModel(at indexPath: IndexPath) {
-        if let item = todoItems?[indexPath.row]{  //returns the specific element in the row
+        if let item = todoItems?[indexPath.row]{
             do {
                 try realm.write {
                     realm.delete(item)
@@ -126,11 +108,11 @@ class ListViewController: SwipeCellsTableViewController {
                 if let curCategory = self.selectedCategory{
                     
                     do{
-                        try self.realm.write { //adds item to realm after block of code is completed
-                            let newItem = Item() // Item object
+                        try self.realm.write {
+                            let newItem = Item()
                             newItem.title = textField.text!
                             newItem.dateCreated = Date()
-                            curCategory.items.append(newItem) //adds new item to list of item objects for the selected category
+                            curCategory.items.append(newItem)
                         }
                         
                     }catch{
@@ -153,11 +135,8 @@ class ListViewController: SwipeCellsTableViewController {
 //MARK: - Search Bar Methods
 extension ListViewController: UISearchBarDelegate{
     
-    
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true) // render todoItems based on the filter of whats in the search bar
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "dateCreated", ascending: true)
         tableView.reloadData()
     }
     

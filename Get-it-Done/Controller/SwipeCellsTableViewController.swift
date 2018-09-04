@@ -15,11 +15,6 @@ class SwipeCellsTableViewController: UITableViewController, SwipeTableViewCellDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        tableView.reloadData(
-//            with: .simple(duration: 0.75, direction: .rotation3D(type: .ironMan),
-//                          constantDelay: 0))
-        
         tableView.rowHeight = 80.0
         tableView.separatorStyle = .none
     }
