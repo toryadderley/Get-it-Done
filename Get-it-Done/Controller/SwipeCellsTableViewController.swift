@@ -2,7 +2,6 @@
 //  SwipeCellsTableViewController.swift
 //  Get-it-Done
 //
-//  Created by Tory Adderley on 8/12/18.
 //  Copyright © 2018 Tory Adderley. All rights reserved.
 //
 

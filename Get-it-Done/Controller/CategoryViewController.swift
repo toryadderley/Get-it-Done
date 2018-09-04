@@ -2,7 +2,6 @@
 //  CategoryViewController.swift
 //  Get-it-Done
 //
-//  Created by Tory Adderley on 8/11/18.
 //  Copyright © 2018 Tory Adderley. All rights reserved.
 //
 
